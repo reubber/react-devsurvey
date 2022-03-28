@@ -22,7 +22,7 @@ module.exports = {
       loader: 'ts-loader',
       exclude: /node_modules/
     }, {
-      test: /\.scss$/,
+      test: /\.(s?)css$/,
       use: [{
         loader: 'style-loader'
       }, {
