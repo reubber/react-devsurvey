@@ -2,7 +2,7 @@ import React from 'react'
 import Styles from './login-styles.scss'
 import Spinner from '@/presentation/components/spinner/spinner'
 
-const login: React.FC = () => {
+const LoginCmp: React.FC = () => {
   return (
     <div className={Styles.login}>
       <header className={Styles.header}>
@@ -32,4 +32,4 @@ const login: React.FC = () => {
   )
 }
 
-export default login
+export const Login = LoginCmp
