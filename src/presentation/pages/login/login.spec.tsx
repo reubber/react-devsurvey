@@ -19,10 +19,10 @@ const makeSut = (): SutTypes => {
   }
 }
 
-// garantir que os components nao sejam renderizados no inicio.
 describe('Login Component', () => {
   afterEach(cleanup)
 
+  // garantir que os components nao sejam renderizados no inicio.
   test('Should start with inital state', () => {
     const { sut, validationStub } = makeSut()
     const errorWrap = sut.getByTestId('error-wrap')
@@ -49,6 +49,15 @@ describe('Login Component', () => {
     fireEvent.input(passwordInput, { target: { value: faker.internet.password() } })
     const passwordStatus = sut.getByTestId('password-status')
     expect(passwordStatus.title).toBe(validationStub.errorMessage)
+  })
+
+  test('Should show valid email state if Validation succeeds', () => {
+    const { sut, validationStub } = makeSut()
+    validationStub.errorMessage = null
+    const emailInput = sut.getByTestId('email')
+    fireEvent.input(emailInput, { target: { value: faker.internet.email() } })
+    const emailStatus = sut.getByTestId('email-status')
+    expect(emailStatus.title).toBe('Tudo certo!')
   })
 
   test('Should show valid password state if Validation succeeds', () => {
