@@ -5,6 +5,8 @@
   "license": "GNU GPL3",
   "scripts": {
     "start": "webpack-dev-server --open",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test -- --watch",
     "test:staged": "npm test -- --findRelatedTests",
