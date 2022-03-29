@@ -5,24 +5,28 @@ import { LoginHeader, Footer, InputBase, FormStatusBase } from '@/presentation/c
 
 type StateProps = {
   isLoading: boolean
-  errorMessage: string
+
 }
 
 const LoginCmp: React.FC = () => {
   const [state] = useState<StateProps>({
-    isLoading: false,
-    errorMessage: ''
+    isLoading: false
+  })
+  const [errorState] = useState({
+    email: 'Campo obrigatório',
+    password: 'Campo obrigatório',
+    mainError: ''
   })
 
   return (
     <div className={Styles.login}>
       <LoginHeader />
-      <Context.Provider value={state}>
+      <Context.Provider value={{ state, errorState }}>
         <form className={Styles.form}>
           <h2>Login</h2>
           <InputBase type='email' name='email' placeholder='Digite seu e-mail' state={undefined} setState={undefined} />
           <InputBase type='password' name='password' placeholder='Digite sua senha' state={undefined} setState={undefined} />
-          <button className={Styles.submit} type='submit'>Entrar</button>
+          <button data-testid="submit" disabled className={Styles.submit} type='submit'>Entrar</button>
           <span className={Styles.link}>Criar conta</span>
           <FormStatusBase state={state.isLoading} />
         </form>
