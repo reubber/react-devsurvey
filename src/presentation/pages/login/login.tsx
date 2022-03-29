@@ -19,10 +19,10 @@ const LoginCmp: React.FC<Props> = ({ validation }: Props) => {
     mainError: ''
   })
   useEffect(() => {
-    validation.validate({ email: state.email })
+    validation.validate('email', state.email)
   }, [state.email])
   useEffect(() => {
-    validation.validate({ email: state.email })
+    validation.validate('password', state.password)
   }, [state.password])
 
   return (
