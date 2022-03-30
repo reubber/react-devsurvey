@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Styles from './login-styles.scss'
 import Context from '@/presentation/contexts/form/form-context'
 import { LoginHeader, Footer, InputBase, FormStatusBase } from '@/presentation/components'
@@ -57,7 +58,7 @@ const LoginCmp: React.FC<Props> = ({ validation, authentication }: Props) => {
           <InputBase type='email' name='email' placeholder='Digite seu e-mail' state={undefined} setState={undefined} />
           <InputBase type='password' name='password' placeholder='Digite sua senha' state={undefined} setState={undefined} />
           <button data-testid="submit" disabled={ !!state.emailError || !!state.passwordError } className={Styles.submit} type='submit'>Entrar</button>
-          <span className={Styles.link}>Criar conta</span>
+          <Link data-testid="signup" to="/signup" className={Styles.link}>Criar conta</Link>
           <FormStatusBase state={state.isLoading} />
         </form>
       </Context.Provider>
