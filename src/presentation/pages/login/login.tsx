@@ -34,7 +34,7 @@ const LoginCmp: React.FC<Props> = ({ validation }: Props) => {
           <h2>Login</h2>
           <InputBase type='email' name='email' placeholder='Digite seu e-mail' state={undefined} setState={undefined} />
           <InputBase type='password' name='password' placeholder='Digite sua senha' state={undefined} setState={undefined} />
-          <button data-testid="submit" disabled className={Styles.submit} type='submit'>Entrar</button>
+          <button data-testid="submit" disabled={ !!state.emailError || !!state.passwordError } className={Styles.submit} type='submit'>Entrar</button>
           <span className={Styles.link}>Criar conta</span>
           <FormStatusBase state={state.isLoading} />
         </form>
